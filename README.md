@@ -1,7 +1,7 @@
 # COMP2113
 ## Team members :
 Lee Sihyeon 3035834838
-Lim Sohui
+Lim Sohui 3035946162
 Kum Sangyoon
 
 ## Code requirements :
