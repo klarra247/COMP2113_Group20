@@ -22,14 +22,6 @@ void Contributors()
 
 void Player()
 {
-/*
-adds playername by user's input
-input:playername
-output:if the name only includes alphabet and number, added to vector players, print "Please try again" otherwise.
-*/
-	/*
-	 Enter name
-	 */
 
     string name;
     cout << "Enter your name: ";
