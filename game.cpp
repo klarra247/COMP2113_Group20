@@ -1,11 +1,19 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include<cstdlib> // for the rand(), srand() functions to generate random numbers
 
 using namespace std;
 
 
 
+void checkCase(string& word) {
+    for (int i = 0; i < word.length(); i++) {
+        if(isupper(word[i])) {
+            word[i] = tolower(word[i]);
+        } 
+    }
+}
 
 int playGame(string word) {
     string input;
