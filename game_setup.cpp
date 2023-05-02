@@ -5,8 +5,15 @@
 #include <string>
 using namespace std;
 
+class Wordle{
+public:
+	void Contributors();
+	void Player();
+	void Start();
+	void Exit();
+}
 
-void Contributors()
+void Wordle::Contributors()
 {
     cout << "========================================="<<endl;
     cout << "||                                     ||"<<endl;
@@ -20,7 +27,7 @@ void Contributors()
 }
 
 
-void Player()
+void Wordle::Player()
 {
 
     string name;
@@ -38,7 +45,7 @@ void Player()
 
 
 //startgame
-void Start()
+void Wordle::Start()
 {
     /*
     // wrordle 게임 function 
@@ -48,7 +55,7 @@ void Start()
 
 
 
-void Exit()
+void Wordle::Exit()
 {
     //플레이어 기록 알려주기
     //savePlayers();
