@@ -31,23 +31,23 @@ output:lines printed
 
 
 int main(){
-
-    string menu;
+    Wordle WD;
+    string input;
     intro();
-    cin >> menu;
+    cin >> input;
     cout << "---------------*--*--start playing W O R D L E--*--*---------------" << endl;
     cout << "\n" << endl;
 
-    if (menu == "I" || menu == "i"){
+    if (input == "I" || input == "i"){
         Contributors();
     }
-    else if (menu == "P" || menu == "p"){
+    else if (input == "P" || input == "p"){
         Player();
     }
-    else if (menu == "S" || menu == "s"){
+    else if (input == "S" || input == "s"){
         Start();
     }
-    else if (menu == "BYE" || menu == "bye"){
+    else if (input == "BYE" || input == "bye"){
         Exit();
         //break;
     }
