@@ -1,4 +1,4 @@
-# COMP2113
+# Wordle Game
 ## Team members :
 Lee Sihyeon 3035834838
 
