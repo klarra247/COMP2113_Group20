@@ -12,9 +12,9 @@
 
 using namespace std;
 
-void printLine();
+void Lines(); //declares the function Lines 
 
-class Game
+class Game //class for Game and states its essential functions
 {
 protected:
 	vector<PlayerInfo> Players; // registered player
