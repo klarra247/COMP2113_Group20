@@ -138,12 +138,6 @@ void Game::addPlayer() //to register a new user into the game
     
 }
     
-//to update player's information after every game
-void Wordle::updatePlayer()
-{
-    int i = indexNum(currentPlayer.getName());
-	Players[i].setPlayer(currentPlayer);
-}
 
 //load the name of the registered players from the players.txt file
 void Game::loadPlayers()
