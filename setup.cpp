@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void printLine()
+void lines()
 {
 	cout<<"---------------------------------------------------"<<endl;
 }
@@ -37,38 +37,35 @@ void Game::savePlayers()
 //print the menu of game
 void Game::intro()
 {
-	printLine();
+	lines();
 	
 	cout<<"1. Player registration : Enter P or p"<<endl;
 	cout<<"2. Start game if you have registered your name : Enter S or s"<<endl;
 	cout<<"3. To see Contributers : Enter C or c)"<<endl;
 	cout<<"4. Exit game : E or e"<<endl;
 	
-	printLine();
+	lines();
 	
-    cout<<"Which menu do you want to choose? : ";
+    cout<<"Select a menu: ";
 }
 
 //startGame
 void Game::startGame()
 {
-	/*
-	 using member function from Blackjack class
-	 */
+	
 }
 
-// print the names of game contributors
-void Game::contributors()
+// print the names of game developers
+void Game::developers()
 {
-    cout << "========================================="<<endl;
-    cout << "||                                     ||"<<endl;
-    cout << "||      Contributors of this game      ||"<<endl;
-    cout << "||                                     ||"<<endl;
-    cout << "||            Kum Sangyoon             ||"<<endl;
-    cout << "||            Lee Sihyeon              ||"<<endl;
-    cout << "||            Lim Sohui                ||"<<endl;
-    cout << "||                                     ||"<<endl;
-    cout << "========================================="<<endl;
+    cout << "||                                      ||"<<endl;
+    cout << "||   <<Our Game was Developed by...>>   ||"<<endl;
+    cout << "||                                      ||"<<endl;
+    cout << "||           [Kum Sangyoon]             ||"<<endl;
+    cout << "||           [Lee Sihyeon]              ||"<<endl;
+    cout << "||           [Lim Sohui]                ||"<<endl;
+    cout << "||                                      ||"<<endl;
+
 }
 
 
@@ -170,7 +167,7 @@ int Game::getPlayerIndex(string playerName)
 void Game::exit()
 {
     savePlayers();
-    cout << "Thank you for playing!" << endl;
+    cout << "Thank you for playing! See you next time :)" << endl;
 }
 
 
@@ -183,33 +180,33 @@ Wordle::~Wordle()
 bool Wordle::loadPlayer()
 {
 	string playerName;
-    int j,k=-1;
+    int number, numbers = -1;
 	while(true)
 	{
 		try {
-			cout<<"Enter your name : ";
+			cout<<"Enter your user name: ";
 			cin>>playerName;
 			cin.ignore();
 			if (playerName == "R" || playerName == "r"){
                 addPlayer();
                 break;
             }
-			for(int i = 0; i < playerName.size(); i++)
+			for(int n = 0; n < playerName.size(); ++n)
 			{
-				if(isalnum(playerName[i]))
+				if(isalnum(playerName[n]))
 					continue;
 				else
 					throw playerName;
 			}
 
-            j = getPlayerIndex(playerName);
-			if( j == -1 )
+            number = getPlayerIndex(playerName);
+			if(number == -1)
 			{
 				cout<<endl<<"Your name does not exist. Enter R to register"<<endl;
 				throw playerName;
 
 			}
-            k++;
+            numbers++;
 			break;
 
 		}
@@ -219,7 +216,7 @@ bool Wordle::loadPlayer()
 			cin.clear();
 		}
 	}
-	currentPlayer.setPlayer(Players[j]);
+	currentPlayer.setPlayer(Players[number]);
 	return true;
 
 }
@@ -230,7 +227,7 @@ bool Wordle::restart()
 
     while(true)
     {
-		cout<<"Do you want to play another round? (Y/N) : ";
+		cout<<"Do you want to play another round? (Yes or No) : ";
     	char answer;
         
 			cin>>answer;
@@ -240,13 +237,13 @@ bool Wordle::restart()
 			if(!isalpha(answer))
 				throw answer;
 			else{
-                if (answer == 'Y' || answer == 'y')
+                if (answer == 'Yes' || answer == 'yes')
                     return true;
-                else if (answer == 'N' || answer == 'n')
+                else if (answer == 'No' || answer == 'no')
                     return false;
             	else
 		{
-			cout<<"Please Try Again."<<endl;
+			cout<<"What a pity! Please Try Again :( "<<endl;
 			cin.clear();
 		}
     }
