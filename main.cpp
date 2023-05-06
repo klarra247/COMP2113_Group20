@@ -7,7 +7,7 @@
 #include "players.h"
 using namespace std;
 
-int main(){
+int main(){ //initiates the WORDLE game
     Wordle WD;
     string input;
     WD.loadPlayers();
@@ -32,23 +32,23 @@ while(1)
     {
         WD.intro();
 
-            cin >> input;
+            cin >> input;  //user inputs an alphabet that correspond to the menu option
             cin.ignore();
 
-            if (input == "P" ||  input == "p") 
+            if (input == "P" ||  input == "p") //entering P or p would proceed user to the first menu
             {
                 WD.addPlayer();
             }
-            else if ( input == "S" ||  input == "s") 
+            else if ( input == "S" ||  input == "s") //entering S or s would proceed user to the first menu
             {
                 
                 WD.startGame();
             }
-            else if ( input == "C" ||  input == "c") 
+            else if ( input == "C" ||  input == "c") //entering C or c would proceed user to the first menu
             {
                 WD.contributors();
             }
-            else if ( input == "E" ||  input == "e") 
+            else if ( input == "E" ||  input == "e") //entering E or e would proceed user to the first menu
             {
                 WD.exit();
                 break;
@@ -56,7 +56,7 @@ while(1)
             else
             {
                 cout << endl;
-                cout << "Please enter again." << endl;
+                cout << "Please enter again." << endl; //if user does not input a valid menu option, the game asks the user to input again
                 cout << endl;
                 cin.clear();
             }
