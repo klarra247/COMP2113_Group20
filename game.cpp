@@ -247,7 +247,7 @@ bool playGame()
         currentTry++;
     }
     guessedWord.clear();
-
+    return false;
 
 }
 
