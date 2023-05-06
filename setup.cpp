@@ -52,9 +52,8 @@ void Game::intro()
 //startGame
 void Game::startGame()
 {
-	/*
-	 using member function from Blackjack class
-	 */
+	//void function to start the game
+	
 }
 
 // print the names of game contributors
