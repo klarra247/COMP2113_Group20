@@ -15,7 +15,7 @@ const int CORRECT_POS = 2;
 vector<string> guessedWord;
 
 //
-void addGuess(string& input({
+void addGuess(string& input){
     guessedWord.push_back(input);
 }
 			    
