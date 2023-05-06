@@ -70,14 +70,14 @@ void Game::contributors()
 //to update player's information after every game
 void Wordle::updatePlayer()
 {
-    int i = getPlayerIndex(currentPlayer.getName());
+    int i = indexNum(currentPlayer.getName());
 	Players[i].setPlayer(currentPlayer);
 }
 
 void Wordle::showRank(){
     vector<PlayerInfo>::iterator i;
 	int rank = Players.size();
-	int id = getPlayerIndex(currentPlayer.getName());
+	int id = indexNum(currentPlayer.getName());
 	int wins = Players[id].getWins();
 	int same = -1;
     for(i=Players.begin(); i != Players.end(); i++){
@@ -140,7 +140,7 @@ void Game::addPlayer() //to register a new user into the game
 //to update player's information after every game
 void Wordle::updatePlayer()
 {
-    int i = getPlayerIndex(currentPlayer.getName());
+    int i = indexNum(currentPlayer.getName());
 	Players[i].setPlayer(currentPlayer);
 }
 

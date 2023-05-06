@@ -33,7 +33,7 @@ public:
 	void savePlayers();
 
 	// get player's index from players.txt
-	int getPlayerIndex(string playerName);
+	int indexNum(string playerName);
 
 	// Load existing player
 	void loadPlayers();
