@@ -27,7 +27,7 @@ public:
 	void intro();
 
 	// load player's index from players.txt
-	int getPlayerIndex(string playerName);
+	int indexNum(string playerName);
 
 	// Save player record on players.txt
 	void savePlayers();
