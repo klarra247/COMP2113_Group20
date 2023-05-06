@@ -32,9 +32,15 @@ public:
 	// Save player record on players.txt
 	void savePlayers();
 
+	// get player's index from players.txt
+	int getPlayerIndex(string playerName);
+
 	// Load existing player
 	void loadPlayers();
-	
+
+	// Update player information
+	void updatePlayer(string playerName);
+
     // Input user's name
     void addPlayer();
 	
@@ -46,6 +52,8 @@ public:
 
 	// Exit game
 	void exit();
+
+
 
 
 
@@ -67,9 +75,14 @@ public:
 	bool restart();
 
 	virtual void startGame();
+
+	void showRank();
 	
 	// Update the player's information
 	void updatePlayer();
 };
+
+
+
 
 #endif

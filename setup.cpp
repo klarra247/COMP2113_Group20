@@ -66,7 +66,32 @@ void Game::contributors()
     cout << "||                                     ||"<<endl;
     cout << "========================================="<<endl;
 }
+    
+//to update player's information after every game
+void Wordle::updatePlayer()
+{
+    int i = getPlayerIndex(currentPlayer.getName());
+	Players[i].setPlayer(currentPlayer);
+}
 
+void Wordle::showRank(){
+    vector<PlayerInfo>::iterator i;
+	int rank = Players.size();
+	int id = getPlayerIndex(currentPlayer.getName());
+	int wins = Players[id].getWins();
+	int same = -1;
+    for(i=Players.begin(); i != Players.end(); i++){
+        if (wins >(*i).getWins())
+		{
+			rank -=1;
+		}
+		if (wins ==(*i).getWins()){
+			same+=1;
+		}
+    }
+    cout<<"Your Rank is : "<<rank - same << " out of " <<Players.size()<<endl;
+	Lines();
+}
 
 void Game::addPlayer() //to register a new user into the game
 {
@@ -96,6 +121,7 @@ void Game::addPlayer() //to register a new user into the game
                 break;
             }
 
+			
             PlayerInfo newPlayer(1, playerName, 0);
             Players.push_back(newPlayer);
             return;
@@ -114,7 +140,7 @@ void Game::addPlayer() //to register a new user into the game
 //to update player's information after every game
 void Wordle::updatePlayer()
 {
-    int i = indexNum(currentPlayer.getName());
+    int i = getPlayerIndex(currentPlayer.getName());
 	Players[i].setPlayer(currentPlayer);
 }
 
@@ -271,9 +297,12 @@ void Wordle::startGame() {
 
         if (playGame()){
 			currentPlayer.setWins();
+
 		};
 
 		currentPlayer.show_info();
+
+		showRank();
 
 
         if (restart()) {
