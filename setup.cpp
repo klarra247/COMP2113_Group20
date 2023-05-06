@@ -5,7 +5,7 @@ using namespace std;
 
 void printLine()
 {
-	cout<<"---------------------------------------------------"<<endl;
+	cout<<"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"<<endl;
 }
 
 
@@ -61,7 +61,7 @@ void Game::contributors()
 {
     cout << "========================================="<<endl;
     cout << "||                                     ||"<<endl;
-    cout << "||      Contributors of this game      ||"<<endl;
+    cout << "||  These people have contributed...   ||"<<endl;
     cout << "||                                     ||"<<endl;
     cout << "||            Kum Sangyoon             ||"<<endl;
     cout << "||            Lee Sihyeon              ||"<<endl;
@@ -182,7 +182,7 @@ Wordle::~Wordle()
 bool Wordle::loadPlayer()
 {
 	string playerName;
-    int j,k=-1;
+    int num,nums=-1;
 	while(true)
 	{
 		try {
@@ -201,14 +201,14 @@ bool Wordle::loadPlayer()
 					throw playerName;
 			}
 
-            j = getPlayerIndex(playerName);
-			if( j == -1 )
+        num = getPlayerIndex(playerName);
+			if( num == -1 )
 			{
 				cout<<endl<<"Your name does not exist. Enter R to register"<<endl;
 				throw playerName;
 
 			}
-            k++;
+            ++nums;
 			break;
 
 		}
