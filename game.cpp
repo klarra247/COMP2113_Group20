@@ -221,11 +221,13 @@ bool playGame()
             if (isAllMatch(targetWord, input))
             {
                 cout << "Found the word" << endl;
+		guessedWord.clear();
                 return true;
             }
             if (currentTry == 4)
             {
                 cout << "You failed to find the word" << endl;
+		guessedWord.clear();
                 return false;
             }
         } 
