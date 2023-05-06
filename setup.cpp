@@ -181,6 +181,7 @@ Wordle::~Wordle()
 //load the player
 bool Wordle::loadPlayer()
 {
+	updatePlayer();
 	string playerName;
     int num,nums=-1;
 	while(true)
