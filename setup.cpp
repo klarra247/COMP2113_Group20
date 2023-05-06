@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void Lines()
+void Lines() //creating a line that separates each menu box
 {
 	cout<<"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"<<endl;
 }
@@ -71,7 +71,7 @@ void Game::contributors()
 }
 
 
-void Game::addPlayer()
+void Game::addPlayer() //to register a new user into the game
 {
 
     Lines();
@@ -81,7 +81,7 @@ void Game::addPlayer()
 	{
 		try {
 			cout << "Enter your name: ";
-			cin >> playerName;
+			cin >> playerName; 			//the user enters his or her name
 			cin.ignore();
 			
 			for(int i = 0; i < playerName.size(); i++)
@@ -93,9 +93,9 @@ void Game::addPlayer()
 			}
 			
 
-            int j = getPlayerIndex(playerName);
+            int j = getPlayerIndex(playerName);  
             if (j != -1){
-                cout << "Your name is already registered XD" << endl;
+                cout << "Your name is already registered XD" << endl;   //if the name that user has entered already exists
                 break;
             }
 
@@ -121,6 +121,7 @@ void Wordle::updatePlayer()
 	Players[i].setPlayer(currentPlayer);
 }
 
+//load the name of the registered players from the players.txt file
 void Game::loadPlayers()
 {
 	ifstream fin;
@@ -165,7 +166,7 @@ int Game::getPlayerIndex(string playerName)
 
 
 
-
+//exit the game
 void Game::exit()
 {
     savePlayers();
@@ -187,10 +188,10 @@ bool Wordle::loadPlayer()
 	while(true)
 	{
 		try {
-			cout<<"Enter your name : ";
+			cout<<"Enter your name : ";		//asks the user to input his or her name to start the game
 			cin>>playerName;
 			cin.ignore();
-			if (playerName == "R" || playerName == "r"){
+			if (playerName == "R" || playerName == "r"){	//if the user inputs R or r for registration, the game asks the user for their user name
                 addPlayer();
                 break;
             }
