@@ -15,7 +15,7 @@
 using namespace std;
 
 
-bool playGame();
+bool playGame(); //declares and indicates that a playGame function exists that returns a boolean value
 
 
 
