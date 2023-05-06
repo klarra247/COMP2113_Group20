@@ -26,7 +26,7 @@ void Game::savePlayers()
 
 	for(int i = 0; i < Players.size(); i++ )
 	{
-		fout << " " << Players[i].getName() << " " << Players[i].getWins() << endl;
+		fout << Players[i].getId() << " " << Players[i].getName() << " " << Players[i].getWins() << endl;
 	}
 	fout.close();
 
@@ -71,6 +71,9 @@ void Game::contributors()
 void Wordle::updatePlayer()
 {
     int i = indexNum(currentPlayer.getName());
+	if (i == -1) {
+		return;
+	}
 	Players[i].setPlayer(currentPlayer);
 }
 
@@ -107,7 +110,7 @@ void Game::addPlayer() //to register a new user into the game
 			cin >> playerName; 			//the user enters his or her name
 			cin.ignore();
 			
-			for(int i = 0; i < playerName.size(); i++)
+			for(int i = 0; i < playerName.length(); i++)
 			{
 				if(isalnum(playerName[i]))
 					continue;
@@ -123,7 +126,7 @@ void Game::addPlayer() //to register a new user into the game
             }
 
 			
-            PlayerInfo newPlayer(1, playerName, 0);
+            PlayerInfo newPlayer(Players.size()+1, playerName, 0);
             Players.push_back(newPlayer);
             return;
 
@@ -134,8 +137,6 @@ void Game::addPlayer() //to register a new user into the game
 			cin.clear();
 		}
 	}
-
-    
 }
     
 
@@ -150,10 +151,10 @@ void Game::loadPlayers()
     }
 
 	string player_name;
-	int player_wins;
+	int player_id, player_wins;
 
-    while (fin >>  player_name >> player_wins) {
-        PlayerInfo existingPlayer(1, player_name, player_wins);
+    while (fin >> player_id >>player_name >> player_wins) {
+        PlayerInfo existingPlayer(player_id, player_name, player_wins);
 		Players.push_back(existingPlayer);
     } 
 	
@@ -166,20 +167,12 @@ void Game::loadPlayers()
 //check whether or not the player has been registered already by providing an index number
 int Game::indexNum(string playerName)
 {
-	int i = 0;
-	int result = -1;
-
-    while(i < Players.size())
-    {
-        if(Players[i].getName() == playerName)
-        {
-            result = i;
-            break;
-        }
-        i++;
-    }
-
-	return result;
+	for (int i = 0; i < Players.size(); i++) {
+		if (Players[i].getName() == playerName) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 
@@ -202,7 +195,7 @@ bool Wordle::loadPlayer()
 {
 	updatePlayer();
 	string playerName;
-    int num,nums=-1;
+    int num;
 	while(true)
 	{
 		try {
@@ -228,9 +221,8 @@ bool Wordle::loadPlayer()
 				throw playerName;
 
 			}
-            ++nums;
-			break;
-
+		currentPlayer.setPlayer(Players[num]);
+		return true;
 		}
 		catch (...)
 		{
@@ -238,9 +230,6 @@ bool Wordle::loadPlayer()
 			cin.clear();
 		}
 	}
-	currentPlayer.setPlayer(Players[num]);
-	return true;
-
 }
 
 //ask to play another round
@@ -311,7 +300,6 @@ void Wordle::startGame() {
             continue_game = false;
     }
     updatePlayer();
-	
 }
 
 
