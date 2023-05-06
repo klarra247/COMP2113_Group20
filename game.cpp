@@ -11,6 +11,22 @@ const int WRONG_POS = 1;
 const int CORRECT_POS = 2;
 //
 
+vector<string> guessedWord;
+
+//
+void addGuess(string& input({
+    guessedWord.push_back(input);
+}
+			    
+bool guessed_before(string& user_input){
+    if (find(guessedWord.begin(), guessedWord.end(), user_input) != guessedWord.end()){
+	return true;	
+    }
+    else {
+	return false;
+    }
+}
+
 void checkCase(string& word) {
     for (int i = 0; i < word.length(); i++) {
         if(isupper(word[i])) {
@@ -185,6 +201,12 @@ void playGame()
             cout << "Please enter your guess (word length must be 5) or type Q/q to quit: ";
             getline(cin, input);
         if(input != "q" && spellcheck(input) == true && check_if_5_letters(input) == true){
+	    if (guessed_before(input) == true){
+                cout << "You have guessed this word before! Try a new word." << endl;;
+                continue;
+            } else{
+                    addGuess(input);
+            }
             toLowerCase(input);
             tries[currentTry] = input;
             markMatch(matches, currentTry, targetWord, input);
@@ -218,6 +240,7 @@ void playGame()
  
         currentTry++;
     }
+    guessedWord.clear();
 
 }
 
