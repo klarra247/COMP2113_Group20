@@ -23,7 +23,7 @@ void PlayerInfo::setPlayer(PlayerInfo player)
 void GamePlayer::show_info()
 {
 	cout<<"Player Name : " <<this->player_name<<endl;
-    cout<<"Current Wins : "<< this->player_wins<<endl;
+	cout<<"Current Wins : "<< this->player_wins<<endl;
 
 }
 
