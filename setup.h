@@ -34,10 +34,7 @@ public:
 
 	// Load existing player
 	void loadPlayers();
-
-	// Update player information
-	void updatePlayer(string playerName);
-
+	
     // Input user's name
     void addPlayer();
 	
@@ -49,10 +46,7 @@ public:
 
 	// Exit game
 	void exit();
-	
-	void player();	
-	
-	void start();
+
 
 
 };
@@ -69,13 +63,6 @@ public:
 
 	// Load the current player info : return true if no error, else return false
 	bool loadPlayer();
-	
-
-	// Random word to be guessed is selected
-	int getRandomWord();
-	
-	// Print choices for the player after card open
-	void showPlayerChoices();
 	
 	bool restart();
 
