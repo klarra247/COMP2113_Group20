@@ -218,7 +218,7 @@ bool Wordle::loadPlayer()
 			cin.clear();
 		}
 	}
-	currentPlayer.setPlayer(Players[j]);
+	currentPlayer.setPlayer(Players[num]);
 	return true;
 
 }
