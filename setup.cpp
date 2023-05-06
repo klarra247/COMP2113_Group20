@@ -21,8 +21,6 @@ Game::~Game()
 // to save player's name and nubmer of wins
 void Game::savePlayers()
 {
-//this function saves the player's name and balance 
-
 	ofstream fout;
 	fout.open("players.txt");
 
@@ -52,7 +50,6 @@ void Game::intro()
 //startGame
 void Game::startGame()
 {
-	//void function to start the game
 	
 }
 
@@ -93,7 +90,7 @@ void Game::addPlayer() //to register a new user into the game
 			}
 			
 
-            int j = getPlayerIndex(playerName);  
+            int j = indexNum(playerName);  
             if (j != -1){
                 cout << "Your name is already registered XD" << endl;   //if the name that user has entered already exists
                 break;
@@ -117,7 +114,7 @@ void Game::addPlayer() //to register a new user into the game
 //to update player's information after every game
 void Wordle::updatePlayer()
 {
-    int i = getPlayerIndex(currentPlayer.getName());
+    int i = indexNum(currentPlayer.getName());
 	Players[i].setPlayer(currentPlayer);
 }
 
@@ -145,8 +142,8 @@ void Game::loadPlayers()
 }
 
 
-// give the player his index number
-int Game::getPlayerIndex(string playerName)
+//check whether or not the player has been registered already by providing an index number
+int Game::indexNum(string playerName)
 {
 	int i = 0;
 	int result = -1;
@@ -203,7 +200,7 @@ bool Wordle::loadPlayer()
 					throw playerName;
 			}
 
-        num = getPlayerIndex(playerName);
+        num = indexNum(playerName);
 			if( num == -1 )
 			{
 				cout<<endl<<"Your name does not exist. Enter R to register"<<endl;
