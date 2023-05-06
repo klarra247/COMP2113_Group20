@@ -28,7 +28,7 @@ void Game::savePlayers()
 
 	for(int i = 0; i < Players.size(); i++ )
 	{
-		fout << " " << Players[i].getName() << " " << Players[i].getWins() << endl;
+		fout << "" << Players[i].getName() << " " << Players[i].getWins() << endl;
 	}
 	fout.close();
 
