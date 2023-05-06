@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void printLine()
+void Lines()
 {
 	cout<<"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"<<endl;
 }
@@ -37,16 +37,16 @@ void Game::savePlayers()
 //print the menu of game
 void Game::intro()
 {
-	printLine();
+	Lines();
 	
-	cout<<"1. Player registration : Enter P or p"<<endl;
-	cout<<"2. Start game if you have registered your name : Enter S or s"<<endl;
-	cout<<"3. To see Contributers : Enter C or c)"<<endl;
+	cout<<"1. Player sign-up : Enter P or p"<<endl;
+	cout<<"2. Start game if you have already signed-up : Enter S or s"<<endl;
+	cout<<"3. See game contributors : Enter C or c"<<endl;
 	cout<<"4. Exit game : E or e"<<endl;
 	
-	printLine();
+	Lines();
 	
-    cout<<"Which menu do you want to choose? : ";
+    cout<<"Please select a menu : ";
 }
 
 //startGame
@@ -74,7 +74,7 @@ void Game::contributors()
 void Game::addPlayer()
 {
 
-    printLine();
+    Lines();
     cout <<"Welcome, new player!"<<endl;
     string playerName;
     while(true)
@@ -95,7 +95,7 @@ void Game::addPlayer()
 
             int j = getPlayerIndex(playerName);
             if (j != -1){
-                cout << "Your name is already registered." << endl;
+                cout << "Your name is already registered XD" << endl;
                 break;
             }
 
@@ -106,7 +106,7 @@ void Game::addPlayer()
 		}
 		catch(...)
 		{
-			cout<<"Please Try Again"<<endl;
+			cout<<"Please Try Again."<<endl;
 			cin.clear();
 		}
 	}
@@ -169,7 +169,7 @@ int Game::getPlayerIndex(string playerName)
 void Game::exit()
 {
     savePlayers();
-    cout << "Thank you for playing!" << endl;
+    cout << "Thank you for playing! :)" << endl;
 }
 
 
@@ -214,7 +214,7 @@ bool Wordle::loadPlayer()
 		}
 		catch (...)
 		{
-			cout << "Please Enter Again." << endl;
+			cout << "Please Enter Again :<" << endl;
 			cin.clear();
 		}
 	}
@@ -229,7 +229,7 @@ bool Wordle::restart()
 
     while(true)
     {
-		cout<<"Do you want to play another round? (Y/N) : ";
+		cout<<"Are you up for another round? :) (Y or N) : ";
     	char answer;
         
 			cin>>answer;
@@ -245,7 +245,7 @@ bool Wordle::restart()
                     return false;
             	else
 		{
-			cout<<"Please Try Again."<<endl;
+			cout<<"Please Try Again :("<<endl;
 			cin.clear();
 		}
     }
@@ -280,7 +280,7 @@ void Wordle::startGame() {
         if (restart()) {
             continue_game = true;
             cout << endl;
-            cout << "Play Again" << endl;
+            cout << "Play Again :)" << endl;
             cout << endl;
         }
 
