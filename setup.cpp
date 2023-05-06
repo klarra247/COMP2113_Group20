@@ -74,6 +74,7 @@ void Wordle::updatePlayer()
 	Players[i].setPlayer(currentPlayer);
 }
 
+// to show the rank of the player after every game
 void Wordle::showRank(){
     vector<PlayerInfo>::iterator i;
 	int rank = Players.size();

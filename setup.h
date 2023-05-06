@@ -76,6 +76,7 @@ public:
 
 	virtual void startGame();
 
+	// show the player's rank
 	void showRank();
 	
 	// Update the player's information
