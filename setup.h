@@ -32,9 +32,6 @@ public:
 	// Save player record on players.txt
 	void savePlayers();
 
-	// get player's index from players.txt
-	int indexNum(string playerName);
-
 	// Load existing player
 	void loadPlayers();
 
