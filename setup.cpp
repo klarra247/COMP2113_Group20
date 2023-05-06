@@ -18,7 +18,7 @@ Game::~Game()
 }
 
 
-// to save player's name and ending balance
+// to save player's name and nubmer of wins
 void Game::savePlayers()
 {
 //this function saves the player's name and balance 
@@ -31,6 +31,7 @@ void Game::savePlayers()
 		fout << " " << Players[i].getName() << " " << Players[i].getWins() << endl;
 	}
 	fout.close();
+
 }
 
 //print the menu of game
@@ -73,6 +74,7 @@ void Game::contributors()
 
 void Game::addPlayer()
 {
+
     printLine();
     cout <<"Welcome, new player!"<<endl;
     string playerName;
@@ -90,6 +92,8 @@ void Game::addPlayer()
 				else
 					throw playerName;
 			}
+			
+
             int j = getPlayerIndex(playerName);
             if (j != -1){
                 cout << "Your name is already registered." << endl;
@@ -118,8 +122,27 @@ void Wordle::updatePlayer()
 	Players[i].setPlayer(currentPlayer);
 }
 
+void Game::loadPlayers()
+{
+	ifstream fin;
+	fin.open("players.txt");    
 
+    if (!fin.is_open()) {
+        cout << "Can not read file" <<endl;
+    }
 
+	string player_name;
+	int player_wins;
+
+    while (fin >>  player_name >> player_wins) {
+        PlayerInfo existingPlayer(1, player_name, player_wins);
+		Players.push_back(existingPlayer);
+    } 
+	
+    if ( fin.is_open() ) {
+        fin.close();
+	}
+}
 
 
 // give the player his index number
@@ -167,7 +190,7 @@ bool Wordle::loadPlayer()
 			cout<<"Enter your name : ";
 			cin>>playerName;
 			cin.ignore();
-			if (playerName == "R"){
+			if (playerName == "R" || playerName == "r"){
                 addPlayer();
                 break;
             }
@@ -204,11 +227,12 @@ bool Wordle::loadPlayer()
 //ask to play another round
 bool Wordle::restart()
 {
-    cout<<"Do you want to play another round? (Y/N) : ";
-    char answer;
+
     while(true)
     {
-        try{
+		cout<<"Do you want to play another round? (Y/N) : ";
+    	char answer;
+        
 			cin>>answer;
 			cin.ignore();
 			
@@ -220,15 +244,14 @@ bool Wordle::restart()
                     return true;
                 else if (answer == 'N' || answer == 'n')
                     return false;
-            } 
-			break;
-		}
-		catch(char wrong)
+            	else
 		{
 			cout<<"Please Try Again."<<endl;
 			cin.clear();
 		}
     }
+
+}
     return false;
 }
 
@@ -248,7 +271,12 @@ void Wordle::startGame() {
     while (continue_game) {
 
 
-        playGame();
+        if (playGame()){
+			currentPlayer.setWins();
+		};
+
+		currentPlayer.show_info();
+
 
         if (restart()) {
             continue_game = true;
@@ -261,6 +289,7 @@ void Wordle::startGame() {
             continue_game = false;
     }
     updatePlayer();
+	
 }
 
 

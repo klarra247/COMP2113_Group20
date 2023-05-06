@@ -1,3 +1,7 @@
+#ifndef PLAYERS_H    
+#define PLAYERS_H
+
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -26,7 +30,7 @@ public:
     // Setting Information
     void setName(PlayerInfo player);		//Sets the name of the player
     void setPlayer (PlayerInfo player);	//Sets the id of player
-    void setWins(int wins);	//Sets the wins of player
+    void setWins();	//Sets the wins of player
 
     int getId() const;				//Getting the player's id
     string getName() const;			//Getting the name of the player
@@ -56,3 +60,5 @@ public:
     void getWins();				//getting the guesses the player has made
 
 };
+
+#endif

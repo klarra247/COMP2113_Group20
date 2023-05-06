@@ -10,6 +10,7 @@ using namespace std;
 int main(){
     Wordle WD;
     string input;
+    WD.loadPlayers();
 
     cout << "====================================================================" <<  endl;
     cout << "|                                                                  |" <<  endl;
