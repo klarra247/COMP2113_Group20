@@ -62,7 +62,7 @@ void Game::contributors()
 {
     cout << "========================================="<<endl;
     cout << "||                                     ||"<<endl;
-    cout << "||      Contributors of this game      ||"<<endl;
+    cout << "||      Developers of this game        ||"<<endl;
     cout << "||                                     ||"<<endl;
     cout << "||            Kum Sangyoon             ||"<<endl;
     cout << "||            Lee Sihyeon              ||"<<endl;
