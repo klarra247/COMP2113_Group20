@@ -15,7 +15,7 @@
 using namespace std;
 
 
-void playGame();
+bool playGame();
 
 
 

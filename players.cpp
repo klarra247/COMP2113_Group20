@@ -1,4 +1,6 @@
 #include "players.h"
+
+
 using namespace std;
 
 PlayerInfo::PlayerInfo(int player_id, string player_name, int player_wins) :player_id(player_id), player_name(player_name), player_wins(player_wins)
@@ -39,10 +41,10 @@ string PlayerInfo::getName() const
 
 
 //sets the player's wins and stores it by getting the input of number of wins
-void PlayerInfo::setWins(int wins)
+void PlayerInfo::setWins()
 {
     // cin >> player_balance;
-    player_wins += wins;
+    player_wins += 1;
 }
 
 //returns the wins of the player

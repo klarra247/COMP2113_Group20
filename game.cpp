@@ -9,7 +9,8 @@ using namespace std;
 const int OTHER = 0;
 const int WRONG_POS = 1;
 const int CORRECT_POS = 2;
-//
+
+
 
 vector<string> guessedWord;
 
@@ -95,6 +96,7 @@ bool spellcheck(const string& user_input){
     return false;
 }
 //
+
 
 //
 void toLowerCase( string &input)
@@ -186,7 +188,7 @@ bool isAllMatch(string target, string guess)
 }
 //
 
-void playGame()
+bool playGame()
 {
     //
     int numberOfTries = 6;
@@ -201,26 +203,30 @@ void playGame()
             cout << "Please enter your guess (word length must be 5) or type Q/q to quit: ";
             getline(cin, input);
         if(input != "q" && spellcheck(input) == true && check_if_5_letters(input) == true){
+
 	    if (guessed_before(input) == true){
                 cout << "You have guessed this word before! Try a new word." << endl;;
                 continue;
             } else{
                     addGuess(input);
             }
+
             toLowerCase(input);
             tries[currentTry] = input;
             markMatch(matches, currentTry, targetWord, input);
             printWordle(tries, matches, currentTry);
+            
+            
+            
             if (isAllMatch(targetWord, input))
             {
                 cout << "Found the word" << endl;
-                
-                break;
+                return true;
             }
             if (currentTry == 4)
             {
                 cout << "You failed to find the word" << endl;
-                break;
+                return false;
             }
         } 
         else if (input == "q"){
@@ -241,6 +247,7 @@ void playGame()
         currentTry++;
     }
     guessedWord.clear();
+
 
 }
 
